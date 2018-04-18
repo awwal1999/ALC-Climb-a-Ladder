@@ -1,0 +1,7 @@
+.header li, ul li {
+    float: left;
+    list-style: none;
+    text-align: center;
+    margin: 6px;
+    padding: 8px;
+}
