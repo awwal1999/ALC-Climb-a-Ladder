@@ -43,7 +43,7 @@ function fetchAddress() {
             '<button onclick="Display(' + i + ')"><h3>' + name + '</h3></button><p></p>' +
                 '<div id="'+i+'"class="details" style=display:none;>' + 
                     ' <p> ' + email + '<span>&nbsp;&nbsp;&nbsp;</span>'+ phone + '</p>'+
-                    ' <a onclick="editContact(' + i + ')" class="btn btn-danger" href="#">Edit</a> ' +
+                    ' <a onclick="editContact(' + i + ');openModal()" class="btn btn-danger" href="#">Edit</a> ' +
                     ' <a onclick="deleteContact(' + i + ')" class="btn btn-danger" href="#">Delete</a> ' +
                 '</div>';
     }
@@ -60,7 +60,9 @@ function Display(i){
 
 function editContact(i) {
     //alert(i)
-    
+    var contactName = document.getElementById("edit_name").value = address_book[i].name;;
+    var contactEmail = document.getElementById("edit_email").value = address_book[i].email;;
+    var contactPhone = document.getElementById("edit_phone").value = address_book[i].phone;;
 }
 function deleteContact(i) {
     var confirmDeletion = confirm(`Are you sure you want to delete ${address_book[i].name} ?`);
@@ -70,4 +72,34 @@ function deleteContact(i) {
         fetchAddress();
     }
     // console.log(confirmDeletion);
+}
+
+
+
+
+
+// Get the modal
+var modal = document.getElementById('myModal');
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+function openModal() {
+    modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function () {
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function (event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
 }
