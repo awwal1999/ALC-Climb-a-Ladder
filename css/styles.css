@@ -5,3 +5,6 @@
     margin: 6px;
     padding: 8px;
 }
+#details {
+    display: none;
+}

@@ -40,11 +40,20 @@ function fetchAddress() {
         var phone = address_book[i].phone;
 
         addressBook.innerHTML += 
-            '<h3 onclick="Display()">' + name + '</h3>' +
-                '<div class="details">' + 
+            '<button onclick="Display()"><h3>' + name + '</h3></button>' +
+                '<div id="details">' + 
                     ' <p> ' + email + '<span>&nbsp;&nbsp;&nbsp;</span>'+ phone + '</p>'+
                     ' <a onclick="editContact(\' + i + \')" class="btn btn-danger" href="#">Edit</a> ' +
                     ' <a onclick="deleteContact(\' + i + \')" class="btn btn-danger" href="#">Delete</a> ' +
                 '</div>';
+    }
+}
+
+function Display(){
+    var x = document.getElementById('details');
+    if(x.style.display === "none"){
+        x.style.display = "block"
+    } else {
+        x.style.display = "none";
     }
 }
