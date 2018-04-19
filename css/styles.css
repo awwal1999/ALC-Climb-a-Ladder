@@ -1,3 +1,6 @@
+body {
+    margin: 0;
+}
 .header li, ul li {
     float: left;
     list-style: none;
@@ -7,4 +10,26 @@
 }
 #details {
     display: none;
+}
+.topHeader h1 {
+    margin: 0 auto;
+    padding: 15px;
+    text-align: center;
+    color: #c98585;
+    background-color: aqua;
+}
+
+sub {
+    font-size: small;
+    font-weight: normal;
+}
+form {
+    text-align: center;
+    padding-top: 100px;
+}
+.row {
+	margin: 0 auto;
+	text-align: center;
+	padding: 40px;
+	display: block;
 }

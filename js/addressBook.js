@@ -40,20 +40,34 @@ function fetchAddress() {
         var phone = address_book[i].phone;
 
         addressBook.innerHTML += 
-            '<button onclick="Display()"><h3>' + name + '</h3></button>' +
-                '<div id="details">' + 
+            '<button onclick="Display(' + i + ')"><h3>' + name + '</h3></button><p></p>' +
+                '<div id="'+i+'"class="details" style=display:none;>' + 
                     ' <p> ' + email + '<span>&nbsp;&nbsp;&nbsp;</span>'+ phone + '</p>'+
-                    ' <a onclick="editContact(\' + i + \')" class="btn btn-danger" href="#">Edit</a> ' +
-                    ' <a onclick="deleteContact(\' + i + \')" class="btn btn-danger" href="#">Delete</a> ' +
+                    ' <a onclick="editContact(' + i + ')" class="btn btn-danger" href="#">Edit</a> ' +
+                    ' <a onclick="deleteContact(' + i + ')" class="btn btn-danger" href="#">Delete</a> ' +
                 '</div>';
     }
 }
 
-function Display(){
-    var x = document.getElementById('details');
+function Display(i){
+    var x = this.document.getElementById(i);
     if(x.style.display === "none"){
         x.style.display = "block"
     } else {
         x.style.display = "none";
     }
+}
+
+function editContact(i) {
+    //alert(i)
+    
+}
+function deleteContact(i) {
+    var confirmDeletion = confirm(`Are you sure you want to delete ${address_book[i].name} ?`);
+
+    if (confirmDeletion) {
+        address_book.splice(i, 1);
+        fetchAddress();
+    }
+    // console.log(confirmDeletion);
 }
