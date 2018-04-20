@@ -60,9 +60,26 @@ function Display(i){
 
 function editContact(i) {
     //alert(i)
-    var contactName = document.getElementById("edit_name").value = address_book[i].name;;
-    var contactEmail = document.getElementById("edit_email").value = address_book[i].email;;
-    var contactPhone = document.getElementById("edit_phone").value = address_book[i].phone;;
+    var contactName = document.getElementById("edit_name").value = address_book[i].name;
+    var contactEmail = document.getElementById("edit_email").value = address_book[i].email;
+    var contactPhone = document.getElementById("edit_phone").value = address_book[i].phone;
+
+    document.getElementById('edit_form').addEventListener('submit', editAddress);
+    function editAddress(e){
+        var contactName = document.getElementById("edit_name").value;
+        var contactEmail = document.getElementById("edit_email").value;
+        var contactPhone = document.getElementById("edit_phone").value;
+
+        var user = {
+            name: contactName,
+            email: contactEmail,
+            phone: contactPhone
+        }
+        address_book[i] = user;
+        fetchAddress();
+        e.preventDefault();
+    }
+
 }
 function deleteContact(i) {
     var confirmDeletion = confirm(`Are you sure you want to delete ${address_book[i].name} ?`);
